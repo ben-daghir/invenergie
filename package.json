@@ -1,0 +1,29 @@
+{
+  "name": "invenergie",
+  "version": "0.1.0",
+  "description": "Server for invenergie experiment",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ben-daghir/invenergie.git"
+  },
+  "keywords": [
+    "server",
+    "node.js"
+  ],
+  "author": "Benjamin Daghir",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ben-daghir/invenergie/issues"
+  },
+  "homepage": "https://github.com/ben-daghir/invenergie#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.15.5",
+    "fs": "0.0.1-security",
+    "node-datetime": "^2.0.3"
+  }
+}
