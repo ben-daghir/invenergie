@@ -1,22 +1,30 @@
-var express = require('express');
-var path = require('path');
-var fs = require('fs');
-var myParser = require('body-parser');
-var dateTime = require('node-datetime');
+const express     = require('express');
+const path        = require('path');
+const fs          = require('fs');
+const myParser    = require('body-parser');
+const dateTime    = require('node-datetime');
+const MongoClient = require('mongodb').MongoClient;
+const db          = require('./config/db');
 
-
-
-var app = express();
-var dt = dateTime.create();
+var app               = express();
+var dt                = dateTime.create();
 var formattedDateTime = dt.format('Y-m-d H:M:S');
+var port              = 3000;
+
+
+MongoClient.connect(db.url, (err, database) => {
+
+  if (err) return console.log(err)
+  require('./app/routes')(app, database);
+
+  app.listen(port, () => {
+    console.log('Listening on port: ' + port);
+  });
+})
 
 app.use(myParser.json() );       // to support JSON-encoded bodies
 app.use(myParser.urlencoded({extended: true})); // to support URL-encoded bodies
-
-port =  3000;
 app.use(express.static(__dirname + '/public'));
-app.listen(port, '0.0.0.0');
-console.log('Listening at http://localhost:' + port)
 
 app.get('/', function(req, res) {
     res.sendFile(path.join(__dirname + '/index.html'));

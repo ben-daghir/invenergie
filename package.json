@@ -22,10 +22,16 @@
   "homepage": "https://github.com/ben-daghir/invenergie#readme",
   "dependencies": {
     "body-parser": "^1.18.2",
-    "express": "^4.15.5",
+    "db": "^1.0.6",
+    "express": "^4.16.3",
     "fs": "0.0.1-security",
-    "mysql": "^2.14.1",
-    "node-datetime": "^2.0.3",
+    "mlab-data-api": "^0.2.2",
+    "mongodb": "^2.2.35",
+    "mysql": "^2.15.0",
+    "node-datetime": "^2.0.6",
     "path": "^0.12.7"
+  },
+  "devDependencies": {
+    "nodemon": "^1.17.3"
   }
 }
